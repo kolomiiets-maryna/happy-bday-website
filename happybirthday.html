@@ -173,35 +173,46 @@
 <body>
     <h1>🎉 Happy Birthday! 🎉</h1>
     <div class="cake">
-        <div class="cake-base"></div>
+        <div class="cake-base">
+            <div class="icing">
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+            </div>
+            <div class="cream"></div>
+        </div>
         <div class="candles-cont">
             <div class="candle">
                 <div class="firepit">
                     <div class="fire">
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
                     </div>
                 </div>
             </div>
             <div class="candle">
                 <div class="firepit">
                     <div class="fire">
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
                     </div>
                 </div>
             </div>
             <div class="candle">
                 <div class="firepit">
                     <div class="fire">
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
-                        <div class="flame"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
+                        <div class="flame" id="flame-id"></div>
                     </div>
                 </div>
             </div>
@@ -218,9 +229,9 @@
 
         function blowCandles() {
             count++;
-            document.getElementById("count").innerText = count;
+            // document.getElementById("count").innerText = count;
             if (count >= 10) {
-                document.querySelectorAll('.flame').forEach(f => f.style.display = 'none');
+                document.querySelectorAll('flame-id').forEach(f => f.style.display = 'none');
                 document.getElementById("message").style.display = "block";
             }
         }

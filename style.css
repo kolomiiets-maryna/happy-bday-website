@@ -1,3 +1,7 @@
+        h1 {
+            /* margin-bottom: 200px; */
+        }
+
 
         body {
             text-align: center;
@@ -8,15 +12,36 @@
         .cake {
             margin-top: 200px;
             position: relative;
+            /* overflow: hidden; */
         }
 
         .cake-base {
             width: 350px;
-            height: 150px;
+            height:200px;
             background: #ff69b4;
             margin: 0 auto;
             border-radius: 10px;
+            position: relative;
         }
+
+        .icing {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: -20;
+            width: 100%;
+            height: 30px;
+        }
+
+        .drip {
+            width: 50px;
+            height: 50px;
+            background: white;
+            /* border-radius: 50%; */
+            border-radius:  0 0  100% 100% /  0 0 100% 100%;
+        }
+
+    
 
         .candles-cont {            
             display: flex;
