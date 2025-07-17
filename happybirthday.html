@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎂 Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #fff0f5;
+            font-family: Arial;
+        }
+
+        .cake {
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .cake-base {
+            width: 200px;
+            height: 100px;
+            background: #ff69b4;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: yellow;
+            margin: 0 5px;
+            display: inline-block;
+            position: absolute;
+            top: -40px;
+        }
+
+        .flame {
+            width: 10px;
+            height: 10px;
+            background: orange;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+        }
+
+        #message {
+            display: none;
+            font-size: 2em;
+            color: green;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <div class="cake">
+        <div class="cake-base"></div>
+        <div class="candle" style="left: 60px;">
+            <div class="flame"></div>
+        </div>
+        <div class="candle" style="left: 90px;">
+            <div class="flame"></div>
+        </div>
+        <div class="candle" style="left: 120px;">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <button onclick="blowCandles()">Blow Candle</button>
+
+
+    <div id="message">🎊 Woohoo! All candles are out. Happy Birthday! 🎊</div>
+
+    <script>
+        let count = 0;
+
+        function blowCandles() {
+            count++;
+            document.getElementById("count").innerText = count;
+            if (count >= 10) {
+                document.querySelectorAll('.flame').forEach(f => f.style.display = 'none');
+                document.getElementById("message").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
