@@ -224,17 +224,40 @@
 
     <div id="message">🎊 Woohoo! All candles are out. Happy Birthday! 🎊</div>
 
-    <script>
-        let count = 0;
+<!-- <script>
+const context = new AudioContext();
+const analyser = context.createAnalyser();
+analyser.fftSize = 256;
 
-        function blowCandles() {
-            count++;
-            // document.getElementById("count").innerText = count;
-            if (count >= 10) {
-                document.querySelectorAll('flame-id').forEach(f => f.style.display = 'none');
-                document.getElementById("message").style.display = "block";
-            }
-        }
-    </script>
+navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+  .then(stream => {
+    const source = context.createMediaStreamSource(stream);
+    source.connect(analyser);
+
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const flames = document.querySelectorAll('.fire .flame');
+
+    flames.forEach(flame => flame.classList.add('dynamic')); // allow JS control
+
+    function updateLean() {
+      requestAnimationFrame(updateLean);
+      analyser.getByteFrequencyData(dataArray);
+
+      // Calculate average volume
+      const avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+      const lean = -45 - (avg / 255) * 15; // from -45deg to ~ -60deg
+
+      flames.forEach((flame, index) => {
+        flame.style.transform = `rotate(${lean}deg) skew(-10deg, -10deg) scale(1)`;
+      });
+    }
+
+    updateLean();
+  })
+  .catch(err => {
+    console.error("Mic access denied", err);
+  });
+</script> -->
+
 </body>
 </html>
