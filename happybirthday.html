@@ -171,7 +171,9 @@
     </style> -->
 </head>
 <body>
-    <h1>🎉 Happy Birthday! 🎉</h1>
+    <h1>🎉 Happy Birthday, Ari! 🎉</h1>
+    <h2> Make a wish and blow the candles!</h2>
+
     <div class="cake">
         <div class="cake-base">
             <div class="icing">
@@ -219,45 +221,97 @@
         </div>
     </div>
 
-    <button onclick="blowCandles()">Blow Candle</button>
+<button onclick="startMic()">Start Microphone</button>
 
+    <div id="message">🎊 Woohoo! May all your wishes come true ❤️🎊</div>
 
-    <div id="message">🎊 Woohoo! All candles are out. Happy Birthday! 🎊</div>
+<script>
+        let audioContext;
+        let analyser;
+        let microphone;
+        let isMicActive = false;
+        let candlesBlown = false;
 
-<!-- <script>
-const context = new AudioContext();
-const analyser = context.createAnalyser();
-analyser.fftSize = 256;
+        async function startMic() {
+            if (!isMicActive && !candlesBlown) {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    analyser.fftSize = 256;
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-  .then(stream => {
-    const source = context.createMediaStreamSource(stream);
-    source.connect(analyser);
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
 
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
-    const flames = document.querySelectorAll('.fire .flame');
+                    isMicActive = true;
+                    document.querySelector('button[onclick="startMic()"]').textContent = 'Stop Microphone';
+                    analyzeVolume();
+                } catch (err) {
+                    console.error('Error accessing microphone:', err);
+                    alert('Could not access microphone. Please ensure microphone access is allowed.');
+                }
+            } else {
+                stopMic();
+            }
+        }
 
-    flames.forEach(flame => flame.classList.add('dynamic')); // allow JS control
+        function stopMic() {
+            if (microphone) {
+                microphone.mediaStream.getTracks().forEach(track => track.stop());
+                audioContext.close();
+                isMicActive = false;
+                document.querySelector('button[onclick="startMic()"]').textContent = 'Start Microphone';
+                resetFlames();
+            }
+        }
 
-    function updateLean() {
-      requestAnimationFrame(updateLean);
-      analyser.getByteFrequencyData(dataArray);
+        function analyzeVolume() {
+            if (!isMicActive || candlesBlown) return;
 
-      // Calculate average volume
-      const avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-      const lean = -45 - (avg / 255) * 15; // from -45deg to ~ -60deg
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(dataArray);
 
-      flames.forEach((flame, index) => {
-        flame.style.transform = `rotate(${lean}deg) skew(-10deg, -10deg) scale(1)`;
-      });
-    }
+            const average = dataArray.reduce((sum, value) => sum + value, 0) / dataArray.length;
+            const volume = average / 255; // Normalize to 0-1
 
-    updateLean();
-  })
-  .catch(err => {
-    console.error("Mic access denied", err);
-  });
-</script> -->
+            const flames = document.querySelectorAll('.fire .flame');
+            flames.forEach(flame => {
+                if (volume > 0.3) { // Threshold for leaning
+                    const leanAngle = Math.min(40 * volume, 90); // Max 30 degrees lean
+                    flame.style.transform = `rotate(${leanAngle - 45}deg) skew(-10deg, -10deg)`;
+                    flame.classList.add('dynamic');
+                } else {
+                    flame.style.transform = `rotate(-45deg) skew(-10deg, -10deg)`;
+                    flame.classList.remove('dynamic');
+                }
+            });
+
+            if (volume > 0.5) { // Threshold for blowing out candles
+                blowCandles();
+            } else {
+                requestAnimationFrame(analyzeVolume);
+            }
+        }
+
+        function resetFlames() {
+            const flames = document.querySelectorAll('.fire .flame');
+            flames.forEach(flame => {
+                flame.style.transform = `rotate(-45deg) skew(-10deg, -10deg)`;
+                flame.classList.remove('dynamic');
+            });
+        }
+
+        function blowCandles() {
+            if (candlesBlown) return;
+            candlesBlown = true;
+            const flames = document.querySelectorAll('.fire .flame');
+            flames.forEach((flame, index) => {
+                flame.style.animation = index % 2 === 0 ? 'fly-up-burnout-1 0s forwards' : 'fly-up-burnout-2 0s forwards';
+                });
+            document.getElementById('message').style.display = 'block';
+            stopMic();
+        }
+    </script>
 
 </body>
 </html>

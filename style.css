@@ -106,10 +106,10 @@
         animation-duration: 300ms;
         }
 
-        /* .fire .flame.dynamic {
-        animation: none !important;
+        .fire .flame.dynamic {
+        animation: none;
         transition: transform 0.1s ease;
-        } */
+        }
 
         .fire .flame:nth-of-type(2n) {
         animation-name: burn-right;
