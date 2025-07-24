@@ -6,7 +6,20 @@
             text-align: center;
         } */
 
-        
+        #container {
+            position: relative;
+        }
+
+        #canvas {
+        display: none;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        top: -500px;
+        left: 0;
+        position: absolute;
+        }
 
         body {
             text-align: center;
@@ -203,11 +216,16 @@
         }
         }
 
-        #message {
+        #message, #sign {
             display: none;
             font-size: 2em;
             color: green;
             margin-top: 20px;
+        }
+
+        #sign {
+            text-align: right;
+            padding-right: 100px;
         }
 
         .mic-button {
@@ -223,15 +241,18 @@
         @media screen and (max-width: 1000px)  {
             h1 {
                 font-size: 70px;
+                margin-top: 50%;
             }
 
             h2 {
                 font-size: 40px;
             }
 
-            body {
+            /* body {
                 margin-top: 50%;
-            }
+            } */
+
+
 
             .cake {
                 margin-top: 280px;

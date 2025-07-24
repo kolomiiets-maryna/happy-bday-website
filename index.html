@@ -5,62 +5,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <h1>🎉 Happy Birthday, Ari! 🎉</h1>
+        <h2> Make a wish and blow the candles!</h2>
+        
     
-    <h1>🎉 Happy Birthday, Ari! 🎉</h1>
-    <h2> Make a wish and blow the candles!</h2>
-    
-    
-    <div class="cake">
-        <div class="cake-base">
-            <div class="icing">
-                <div class="drip"></div>
-                <div class="drip"></div>
-                <div class="drip"></div>
-                <div class="drip"></div>
-                <div class="drip"></div>
-                <div class="drip"></div>
+        <div class="cake">
+            <div class="cake-base">
+                <div class="icing">
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                </div>
+                <div class="cream-drip"></div>
+                <div class="cream"></div>
             </div>
-            <div class="cream-drip"></div>
-            <div class="cream"></div>
+            <div class="candles-cont">
+                <div class="candle">
+                    <div class="firepit">
+                        <div class="fire">
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="candle">
+                    <div class="firepit">
+                        <div class="fire">
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="candle">
+                    <div class="firepit">
+                        <div class="fire">
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                            <div class="flame" id="flame-id"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="candles-cont">
-            <div class="candle">
-                <div class="firepit">
-                    <div class="fire">
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="candle">
-                <div class="firepit">
-                    <div class="fire">
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="candle">
-                <div class="firepit">
-                    <div class="fire">
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                        <div class="flame" id="flame-id"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <button onclick="startMic()" class="mic-button">Start Microphone</button>
+
+        <div id="message">🎊 Yeyyy! 🎊 <br>May all your wishes come true! <br> Sending you virtual kisses and hugs ❤️ <br> And good luck on your exams 🍀 <br></div>
+        <div id="sign">〜Marina 💕</div>
+
     </div>
-
-<button onclick="startMic()" class="mic-button">Start Microphone</button>
-
-    <div id="message">🎊 Woohoo! 🎊 <br>May all your wishes come true ❤️ <br> - Marina</div>
-
 <script>
         let audioContext;
         let analyser;
@@ -117,7 +120,7 @@
 
             const flames = document.querySelectorAll('.fire .flame');
             flames.forEach(flame => {
-                if (volume > 0.1) { // Threshold for leaning
+                if (volume > 0.3) { // Threshold for leaning
                     const leanAngle = Math.min(40 * volume, 90); // Max 30 degrees lean
                     flame.style.transform = `rotate(${leanAngle - 45}deg) skew(-10deg, -10deg)`;
                     flame.classList.add('dynamic');
@@ -127,7 +130,7 @@
                 }
             });
 
-            if (volume > 0.3) { // Threshold for blowing out candles
+            if (volume > 0.5) { // Threshold for blowing out candles
                 blowCandles();
             } else {
                 requestAnimationFrame(analyzeVolume);
@@ -150,8 +153,116 @@
                 flame.style.animation = index % 2 === 0 ? 'fly-up-burnout-1 0s forwards' : 'fly-up-burnout-2 0s forwards';
                 });
             document.getElementById('message').style.display = 'block';
+            document.getElementById('sign').style.display = 'block';
+            document.getElementById('canvas').style.display = 'block';
+
             stopMic();
         }
+
+        let W = window.innerWidth;
+let H = window.innerHeight;
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+const maxConfettis = 150;
+const particles = [];
+
+const possibleColors = [
+  "DodgerBlue",
+  "OliveDrab",
+  "Gold",
+  "Pink",
+  "SlateBlue",
+  "LightBlue",
+  "Gold",
+  "Violet",
+  "PaleGreen",
+  "SteelBlue",
+  "SandyBrown",
+  "Chocolate",
+  "Crimson"
+];
+
+function randomFromTo(from, to) {
+  return Math.floor(Math.random() * (to - from + 1) + from);
+}
+
+function confettiParticle() {
+  this.x = Math.random() * W; // x
+  this.y = Math.random() * H - H; // y
+  this.r = randomFromTo(11, 33); // radius
+  this.d = Math.random() * maxConfettis + 11;
+  this.color =
+    possibleColors[Math.floor(Math.random() * possibleColors.length)];
+  this.tilt = Math.floor(Math.random() * 33) - 11;
+  this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
+  this.tiltAngle = 0;
+
+  this.draw = function() {
+    context.beginPath();
+    context.lineWidth = this.r / 2;
+    context.strokeStyle = this.color;
+    context.moveTo(this.x + this.tilt + this.r / 3, this.y);
+    context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5);
+    return context.stroke();
+  };
+}
+
+function Draw() {
+  const results = [];
+
+  // Magical recursive functional love
+  requestAnimationFrame(Draw);
+
+  context.clearRect(0, 0, W, window.innerHeight);
+
+  for (var i = 0; i < maxConfettis; i++) {
+    results.push(particles[i].draw());
+  }
+
+  let particle = {};
+  let remainingFlakes = 0;
+  for (var i = 0; i < maxConfettis; i++) {
+    particle = particles[i];
+
+    particle.tiltAngle += particle.tiltAngleIncremental;
+    particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
+    particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
+
+    if (particle.y <= H) remainingFlakes++;
+
+    // If a confetti has fluttered out of view,
+    // bring it back to above the viewport and let if re-fall.
+    if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
+      particle.x = Math.random() * W;
+      particle.y = -30;
+      particle.tilt = Math.floor(Math.random() * 10) - 20;
+    }
+  }
+
+  return results;
+}
+
+window.addEventListener(
+  "resize",
+  function() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  },
+  false
+);
+
+// Push new confetti objects to `particles[]`
+for (var i = 0; i < maxConfettis; i++) {
+  particles.push(new confettiParticle());
+}
+
+// Initialize
+canvas.width = W;
+canvas.height = H;
+Draw();
+
     </script>
 
 </body>
