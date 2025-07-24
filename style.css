@@ -1,5 +1,7 @@
         #container {
             position: relative;
+            width: 100%;
+            height: fit-content;
         }
 
         #canvas {
@@ -8,8 +10,9 @@
         overflow-x: hidden;
         width: 100%;
         margin: 0;
-        top: -500px;
-        left: 0;
+        /* top: -500px; */
+        /* left: 0; */
+        height: 100%;
         position: absolute;
         }
 
