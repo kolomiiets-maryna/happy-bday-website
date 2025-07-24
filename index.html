@@ -119,7 +119,7 @@
 
             const flames = document.querySelectorAll('.fire .flame');
             flames.forEach(flame => {
-                if (volume > 0.3) { // Threshold for leaning
+                if (volume > 0.2) { // Threshold for leaning
                     const leanAngle = Math.min(40 * volume, 90); // Max 30 degrees lean
                     flame.style.transform = `rotate(${leanAngle - 45}deg) skew(-10deg, -10deg)`;
                     flame.classList.add('dynamic');
@@ -129,7 +129,7 @@
                 }
             });
 
-            if (volume > 0.5) { // Threshold for blowing out candles
+            if (volume > 0.35) { // Threshold for blowing out candles
                 blowCandles();
             } else {
                 requestAnimationFrame(analyzeVolume);
