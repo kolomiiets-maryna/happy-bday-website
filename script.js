@@ -1,1 +1,200 @@
-const _0x215017=_0x85ee;function _0x85ee(_0xfaed4f,_0x99ab27){const _0x2169c9=_0x2169();return _0x85ee=function(_0x85ee91,_0x4e76b4){_0x85ee91=_0x85ee91-0x1c9;let _0x2cfa12=_0x2169c9[_0x85ee91];return _0x2cfa12;},_0x85ee(_0xfaed4f,_0x99ab27);}function _0x2169(){const _0xc6fd22=['draw','LightBlue','error','fftSize','1051150CTCaeV','OliveDrab','518322HRVHap','tiltAngle','tiltAngleIncremental','querySelectorAll','button[onclick=\x22startMic()\x22]','sin','dynamic','65763UkepDi','26FBxxWF','frequencyBinCount','push','getContext','getUserMedia','DodgerBlue','reduce','forEach','style','floor','getElementById','beginPath','rotate(','fly-up-burnout-2\x200s\x20forwards','remove','.fire\x20.flame','log','createAnalyser','Gold','message','lineTo','webkitAudioContext','block','transform','stroke','color','width','tilt','length','innerHeight','innerWidth','SteelBlue','lineWidth','Could\x20not\x20access\x20microphone.\x20Please\x20ensure\x20microphone\x20access\x20is\x20allowed.','cos','moveTo','strokeStyle','height','527700XwQbgE','querySelector','background-color:\x20rgb(199,\x20199,\x20199);','stop','connect','min','2151616FOjGks','clearRect','canvas','rotate(-45deg)\x20skew(-10deg,\x20-10deg)','20513uGGEfm','mediaStream','Start\x20Microphone','Chocolate','createMediaStreamSource','PaleGreen','close','textContent','random','resize','classList','525714AVbyIE','Crimson','deg)\x20skew(-10deg,\x20-10deg)','110zflbZU','Pink','display','4pgEqxc'];_0x2169=function(){return _0xc6fd22;};return _0x2169();}(function(_0x2ea1ce,_0x1160d7){const _0x4c2f4a=_0x85ee,_0x2e5992=_0x2ea1ce();while(!![]){try{const _0x4fe8e6=-parseInt(_0x4c2f4a(0x1cd))/0x1*(-parseInt(_0x4c2f4a(0x1ed))/0x2)+parseInt(_0x4c2f4a(0x1e5))/0x3+-parseInt(_0x4c2f4a(0x1de))/0x4*(-parseInt(_0x4c2f4a(0x1e3))/0x5)+-parseInt(_0x4c2f4a(0x213))/0x6+-parseInt(_0x4c2f4a(0x1d8))/0x7+-parseInt(_0x4c2f4a(0x1c9))/0x8+parseInt(_0x4c2f4a(0x1ec))/0x9*(-parseInt(_0x4c2f4a(0x1db))/0xa);if(_0x4fe8e6===_0x1160d7)break;else _0x2e5992['push'](_0x2e5992['shift']());}catch(_0x1ae96f){_0x2e5992['push'](_0x2e5992['shift']());}}}(_0x2169,0x2184c));let audioContext,analyser,microphone,isMicActive=![],candlesBlown=![];async function startMic(){const _0x1f8c9b=_0x85ee;if(!isMicActive&&!candlesBlown)try{audioContext=new(window['AudioContext']||window[(_0x1f8c9b(0x202))])(),analyser=audioContext[_0x1f8c9b(0x1fe)](),analyser[_0x1f8c9b(0x1e2)]=0x100;const _0x188d5f=await navigator['mediaDevices'][_0x1f8c9b(0x1f1)]({'audio':!![]});microphone=audioContext[_0x1f8c9b(0x1d1)](_0x188d5f),microphone[_0x1f8c9b(0x217)](analyser),isMicActive=!![],document['querySelector'](_0x1f8c9b(0x1e9))[_0x1f8c9b(0x1d4)]='Stop\x20Microphone',analyzeVolume();}catch(_0xe4990d){console[_0x1f8c9b(0x1e1)]('Error\x20accessing\x20microphone:',_0xe4990d),alert(_0x1f8c9b(0x20e));}else stopMic();}function stopMic(){const _0x5a39ee=_0x85ee;microphone&&(microphone[_0x5a39ee(0x1ce)]['getTracks']()[_0x5a39ee(0x1f4)](_0x2487ba=>_0x2487ba[_0x5a39ee(0x216)]()),audioContext[_0x5a39ee(0x1d3)](),isMicActive=![],document[_0x5a39ee(0x214)]('button[onclick=\x22startMic()\x22]')[_0x5a39ee(0x1d4)]=_0x5a39ee(0x1cf),document[_0x5a39ee(0x214)](_0x5a39ee(0x1e9))['style']=_0x5a39ee(0x215),resetFlames());}function analyzeVolume(){const _0x2e56a0=_0x85ee;if(!isMicActive||candlesBlown)return;console[_0x2e56a0(0x1fd)]('analyzeVolume\x20+++++');const _0x1144ed=new Uint8Array(analyser[_0x2e56a0(0x1ee)]);analyser['getByteFrequencyData'](_0x1144ed);const _0x3cb958=_0x1144ed[_0x2e56a0(0x1f3)]((_0x20a0f0,_0x125700)=>_0x20a0f0+_0x125700,0x0)/_0x1144ed[_0x2e56a0(0x209)],_0x1652d9=_0x3cb958/0xff,_0x3a40b1=document[_0x2e56a0(0x1e8)](_0x2e56a0(0x1fc));_0x3a40b1[_0x2e56a0(0x1f4)](_0x27f8ea=>{const _0xfcfbd6=_0x2e56a0;if(_0x1652d9>0.2){const _0x262aec=Math[_0xfcfbd6(0x218)](0x28*_0x1652d9,0x5a);_0x27f8ea[_0xfcfbd6(0x1f5)]['transform']=_0xfcfbd6(0x1f9)+(_0x262aec-0x2d)+_0xfcfbd6(0x1da),_0x27f8ea[_0xfcfbd6(0x1d7)]['add'](_0xfcfbd6(0x1eb));}else _0x27f8ea[_0xfcfbd6(0x1f5)]['transform']=_0xfcfbd6(0x1cc),_0x27f8ea['classList'][_0xfcfbd6(0x1fb)](_0xfcfbd6(0x1eb));}),_0x1652d9>0.35?blowCandles():requestAnimationFrame(analyzeVolume);}function resetFlames(){const _0x5d4366=_0x85ee,_0x24fc83=document['querySelectorAll']('.fire\x20.flame');_0x24fc83[_0x5d4366(0x1f4)](_0xc66781=>{const _0x2c271e=_0x5d4366;_0xc66781['style'][_0x2c271e(0x204)]=_0x2c271e(0x1cc),_0xc66781[_0x2c271e(0x1d7)][_0x2c271e(0x1fb)](_0x2c271e(0x1eb));});}function blowCandles(){const _0x246a25=_0x85ee;if(candlesBlown)return;candlesBlown=!![];const _0x1c0dca=document[_0x246a25(0x1e8)]('.fire\x20.flame');_0x1c0dca[_0x246a25(0x1f4)]((_0x51a0d1,_0x252ed8)=>{const _0xf1294a=_0x246a25;_0x51a0d1[_0xf1294a(0x1f5)]['animation']=_0x252ed8%0x2===0x0?'fly-up-burnout-1\x200s\x20forwards':_0xf1294a(0x1fa);}),document[_0x246a25(0x1f7)](_0x246a25(0x200))[_0x246a25(0x1f5)][_0x246a25(0x1dd)]=_0x246a25(0x203),document[_0x246a25(0x1f7)]('sign')[_0x246a25(0x1f5)][_0x246a25(0x1dd)]='block',document['getElementById'](_0x246a25(0x1cb))[_0x246a25(0x1f5)][_0x246a25(0x1dd)]=_0x246a25(0x203),stopMic();}let W=window[_0x215017(0x20b)],H=window[_0x215017(0x20a)];const canvas=document[_0x215017(0x1f7)]('canvas'),context=canvas[_0x215017(0x1f0)]('2d'),maxConfettis=0x96,particles=[],possibleColors=[_0x215017(0x1f2),_0x215017(0x1e4),_0x215017(0x1ff),_0x215017(0x1dc),'SlateBlue',_0x215017(0x1e0),_0x215017(0x1ff),'Violet',_0x215017(0x1d2),_0x215017(0x20c),'SandyBrown',_0x215017(0x1d0),_0x215017(0x1d9)];function randomFromTo(_0x5f5acb,_0x5da839){const _0x1f50f3=_0x215017;return Math[_0x1f50f3(0x1f6)](Math[_0x1f50f3(0x1d5)]()*(_0x5da839-_0x5f5acb+0x1)+_0x5f5acb);}function confettiParticle(){const _0x1b16dc=_0x215017;this['x']=Math['random']()*W,this['y']=Math[_0x1b16dc(0x1d5)]()*H-H,this['r']=randomFromTo(0xb,0x21),this['d']=Math[_0x1b16dc(0x1d5)]()*maxConfettis+0xb,this[_0x1b16dc(0x206)]=possibleColors[Math[_0x1b16dc(0x1f6)](Math[_0x1b16dc(0x1d5)]()*possibleColors[_0x1b16dc(0x209)])],this[_0x1b16dc(0x208)]=Math[_0x1b16dc(0x1f6)](Math[_0x1b16dc(0x1d5)]()*0x21)-0xb,this[_0x1b16dc(0x1e7)]=Math[_0x1b16dc(0x1d5)]()*0.07+0.05,this[_0x1b16dc(0x1e6)]=0x0,this[_0x1b16dc(0x1df)]=function(){const _0x22ad0b=_0x1b16dc;return context[_0x22ad0b(0x1f8)](),context[_0x22ad0b(0x20d)]=this['r']/0x2,context[_0x22ad0b(0x211)]=this[_0x22ad0b(0x206)],context[_0x22ad0b(0x210)](this['x']+this[_0x22ad0b(0x208)]+this['r']/0x3,this['y']),context[_0x22ad0b(0x201)](this['x']+this[_0x22ad0b(0x208)],this['y']+this[_0x22ad0b(0x208)]+this['r']/0x5),context[_0x22ad0b(0x205)]();};}function Draw(){const _0x478e88=_0x215017,_0x547d42=[];requestAnimationFrame(Draw),context[_0x478e88(0x1ca)](0x0,0x0,W,window[_0x478e88(0x20a)]);for(var _0x15f95a=0x0;_0x15f95a<maxConfettis;_0x15f95a++){_0x547d42[_0x478e88(0x1ef)](particles[_0x15f95a][_0x478e88(0x1df)]());}let _0x287c97={},_0x2a2e31=0x0;for(var _0x15f95a=0x0;_0x15f95a<maxConfettis;_0x15f95a++){_0x287c97=particles[_0x15f95a],_0x287c97[_0x478e88(0x1e6)]+=_0x287c97[_0x478e88(0x1e7)],_0x287c97['y']+=(Math[_0x478e88(0x20f)](_0x287c97['d'])+0x3+_0x287c97['r']/0x2)/0x2,_0x287c97[_0x478e88(0x208)]=Math[_0x478e88(0x1ea)](_0x287c97[_0x478e88(0x1e6)]-_0x15f95a/0x3)*0xf;if(_0x287c97['y']<=H)_0x2a2e31++;(_0x287c97['x']>W+0x1e||_0x287c97['x']<-0x1e||_0x287c97['y']>H)&&(_0x287c97['x']=Math['random']()*W,_0x287c97['y']=-0x1e,_0x287c97['tilt']=Math[_0x478e88(0x1f6)](Math[_0x478e88(0x1d5)]()*0xa)-0x14);}return _0x547d42;}window['addEventListener'](_0x215017(0x1d6),function(){const _0x23c3a5=_0x215017;W=window[_0x23c3a5(0x20b)],H=window[_0x23c3a5(0x20a)],canvas['width']=window[_0x23c3a5(0x20b)],canvas[_0x23c3a5(0x212)]=window[_0x23c3a5(0x20a)];},![]);for(var i=0x0;i<maxConfettis;i++){particles[_0x215017(0x1ef)](new confettiParticle());}canvas[_0x215017(0x207)]=W,canvas[_0x215017(0x212)]=H,Draw();
+const _0x1ee115=_0x40b1;(function(_0x3dafe5,_0x39952c){const _0x25adb4=_0x40b1,_0x46b481=_0x3dafe5();while(!![]){try{const _0x1baf50=-parseInt(_0x25adb4(0xff))/0x1+-parseInt(_0x25adb4(0xc1))/0x2+parseInt(_0x25adb4(0xdc))/0x3*(-parseInt(_0x25adb4(0xeb))/0x4)+parseInt(_0x25adb4(0xed))/0x5+parseInt(_0x25adb4(0xf2))/0x6*(-parseInt(_0x25adb4(0xc6))/0x7)+parseInt(_0x25adb4(0xe3))/0x8*(parseInt(_0x25adb4(0xd3))/0x9)+-parseInt(_0x25adb4(0x10a))/0xa*(-parseInt(_0x25adb4(0xf5))/0xb);if(_0x1baf50===_0x39952c)break;else _0x46b481['push'](_0x46b481['shift']());}catch(_0x1ff5fe){_0x46b481['push'](_0x46b481['shift']());}}}(_0x4c35,0xd70b8));function _0x40b1(_0x48a583,_0x5aac83){const _0x4c351a=_0x4c35();return _0x40b1=function(_0x40b10d,_0xa7ad4b){_0x40b10d=_0x40b10d-0xbf;let _0x2131cd=_0x4c351a[_0x40b10d];return _0x2131cd;},_0x40b1(_0x48a583,_0x5aac83);}let audioContext,analyser,microphone,isMicActive=![],candlesBlown=![];async function startMic(){const _0x14032d=_0x40b1;if(!isMicActive&&!candlesBlown)try{audioContext=new(window[(_0x14032d(0xbf))]||window['webkitAudioContext'])(),analyser=audioContext[_0x14032d(0xec)](),analyser[_0x14032d(0xdb)]=0x100;const _0x321ba7=await navigator[_0x14032d(0xd0)]['getUserMedia']({'audio':!![]});microphone=audioContext[_0x14032d(0xe4)](_0x321ba7),microphone[_0x14032d(0xe9)](analyser),isMicActive=!![],document['querySelector'](_0x14032d(0xda))[_0x14032d(0xe8)]=_0x14032d(0xcf),analyzeVolume();}catch(_0x3198e8){console[_0x14032d(0xc7)](_0x14032d(0xe5),_0x3198e8),alert(_0x14032d(0xd7));}else stopMic();}function stopMic(){const _0x8a8141=_0x40b1;microphone&&(microphone[_0x8a8141(0x103)][_0x8a8141(0xde)]()['forEach'](_0x19beb6=>_0x19beb6['stop']()),audioContext[_0x8a8141(0x102)](),isMicActive=![],document[_0x8a8141(0xc3)](_0x8a8141(0xda))[_0x8a8141(0xe8)]=_0x8a8141(0xf1),document[_0x8a8141(0xc3)](_0x8a8141(0xda))[_0x8a8141(0xf0)]=_0x8a8141(0xd4),resetFlames());}function analyzeVolume(){const _0x1ef734=_0x40b1;if(!isMicActive||candlesBlown)return;console[_0x1ef734(0xe6)]('analyzeVolume\x20+++++');const _0x20cccf=new Uint8Array(analyser[_0x1ef734(0xf4)]);analyser[_0x1ef734(0xc5)](_0x20cccf);const _0xb7e47e=_0x20cccf[_0x1ef734(0xce)]((_0xff23f5,_0x127312)=>_0xff23f5+_0x127312,0x0)/_0x20cccf[_0x1ef734(0xd2)],_0x244018=_0xb7e47e/0xff,_0x57ac7c=document['querySelectorAll'](_0x1ef734(0xfd));_0x57ac7c[_0x1ef734(0xcb)](_0x1965b8=>{const _0x215703=_0x1ef734;if(_0x244018>0.2){const _0x50abd8=Math['min'](0x28*_0x244018,0x5a);_0x1965b8['style'][_0x215703(0xdf)]=_0x215703(0xfb)+(_0x50abd8-0x2d)+_0x215703(0x107),_0x1965b8[_0x215703(0xe0)][_0x215703(0x100)](_0x215703(0xee));}}),_0x244018>0.35?blowCandles():requestAnimationFrame(analyzeVolume);}function resetFlames(){const _0x4e5793=_0x40b1,_0x409b08=document[_0x4e5793(0xca)](_0x4e5793(0xfd));_0x409b08['forEach'](_0x224cc5=>{const _0x4219e5=_0x4e5793;_0x224cc5['style'][_0x4219e5(0xdf)]=_0x4219e5(0xfe),_0x224cc5[_0x4219e5(0xe0)]['remove'](_0x4219e5(0xee));});}function _0x4c35(){const _0x5a4be6=['lineWidth','1444770IKyUtz','Gold','querySelector','height','getByteFrequencyData','7vejyOf','error','draw','fly-up-burnout-2\x200s\x20forwards','querySelectorAll','forEach','canvas','moveTo','reduce','Stop\x20Microphone','mediaDevices','width','length','3537909Onlwhz','background-color:\x20rgb(199,\x20199,\x20199);','fly-up-burnout-1\x200s\x20forwards','getElementById','Could\x20not\x20access\x20microphone.\x20Please\x20ensure\x20microphone\x20access\x20is\x20allowed.','strokeStyle','OliveDrab','button[onclick=\x22startMic()\x22]','fftSize','1791QJSAeA','display','getTracks','transform','classList','block','innerWidth','24jdShBw','createMediaStreamSource','Error\x20accessing\x20microphone:','log','SteelBlue','textContent','connect','SandyBrown','3848hMhKYY','createAnalyser','2542450pWGvfn','dynamic','LightBlue','style','Start\x20Microphone','8031768JPCRju','cos','frequencyBinCount','11itJMfg','Pink','sign','tilt','floor','getContext','rotate(','addEventListener','.fire\x20.flame','rotate(-45deg)\x20skew(-10deg,\x20-10deg)','1109668qieSPq','add','innerHeight','close','mediaStream','tiltAngle','SlateBlue','random','deg)\x20skew(-10deg,\x20-10deg)','color','push','29380260oyRiuF','AudioContext'];_0x4c35=function(){return _0x5a4be6;};return _0x4c35();}function blowCandles(){const _0x4e3d81=_0x40b1;if(candlesBlown)return;candlesBlown=!![];const _0x3d26fb=document[_0x4e3d81(0xca)](_0x4e3d81(0xfd));_0x3d26fb[_0x4e3d81(0xcb)]((_0x1ed7dd,_0x4679c4)=>{const _0x4288cd=_0x4e3d81;_0x1ed7dd[_0x4288cd(0xf0)]['animation']=_0x4679c4%0x2===0x0?_0x4288cd(0xd5):_0x4288cd(0xc9);}),document[_0x4e3d81(0xd6)]('message')[_0x4e3d81(0xf0)][_0x4e3d81(0xdd)]=_0x4e3d81(0xe1),document['getElementById'](_0x4e3d81(0xf7))[_0x4e3d81(0xf0)][_0x4e3d81(0xdd)]=_0x4e3d81(0xe1),document[_0x4e3d81(0xd6)](_0x4e3d81(0xcc))[_0x4e3d81(0xf0)][_0x4e3d81(0xdd)]='block',stopMic();}let W=window['innerWidth'],H=window[_0x1ee115(0x101)];const canvas=document[_0x1ee115(0xd6)]('canvas'),context=canvas[_0x1ee115(0xfa)]('2d'),maxConfettis=0x96,particles=[],possibleColors=['DodgerBlue',_0x1ee115(0xd9),_0x1ee115(0xc2),_0x1ee115(0xf6),_0x1ee115(0x105),_0x1ee115(0xef),'Gold','Violet','PaleGreen',_0x1ee115(0xe7),_0x1ee115(0xea),'Chocolate','Crimson'];function randomFromTo(_0x2e23cb,_0x52b121){const _0x4ea2d2=_0x1ee115;return Math[_0x4ea2d2(0xf9)](Math[_0x4ea2d2(0x106)]()*(_0x52b121-_0x2e23cb+0x1)+_0x2e23cb);}function confettiParticle(){const _0xc50680=_0x1ee115;this['x']=Math['random']()*W,this['y']=Math[_0xc50680(0x106)]()*H-H,this['r']=randomFromTo(0xb,0x21),this['d']=Math['random']()*maxConfettis+0xb,this[_0xc50680(0x108)]=possibleColors[Math['floor'](Math[_0xc50680(0x106)]()*possibleColors['length'])],this['tilt']=Math[_0xc50680(0xf9)](Math[_0xc50680(0x106)]()*0x21)-0xb,this['tiltAngleIncremental']=Math[_0xc50680(0x106)]()*0.07+0.05,this[_0xc50680(0x104)]=0x0,this['draw']=function(){const _0x2985ae=_0xc50680;return context['beginPath'](),context[_0x2985ae(0xc0)]=this['r']/0x2,context[_0x2985ae(0xd8)]=this['color'],context[_0x2985ae(0xcd)](this['x']+this[_0x2985ae(0xf8)]+this['r']/0x3,this['y']),context['lineTo'](this['x']+this['tilt'],this['y']+this[_0x2985ae(0xf8)]+this['r']/0x5),context['stroke']();};}function Draw(){const _0x231e7e=_0x1ee115,_0x172e8b=[];requestAnimationFrame(Draw),context['clearRect'](0x0,0x0,W,window['innerHeight']);for(var _0x45ded9=0x0;_0x45ded9<maxConfettis;_0x45ded9++){_0x172e8b[_0x231e7e(0x109)](particles[_0x45ded9][_0x231e7e(0xc8)]());}let _0x41c6d={},_0x23ed33=0x0;for(var _0x45ded9=0x0;_0x45ded9<maxConfettis;_0x45ded9++){_0x41c6d=particles[_0x45ded9],_0x41c6d[_0x231e7e(0x104)]+=_0x41c6d['tiltAngleIncremental'],_0x41c6d['y']+=(Math[_0x231e7e(0xf3)](_0x41c6d['d'])+0x3+_0x41c6d['r']/0x2)/0x2,_0x41c6d[_0x231e7e(0xf8)]=Math['sin'](_0x41c6d[_0x231e7e(0x104)]-_0x45ded9/0x3)*0xf;if(_0x41c6d['y']<=H)_0x23ed33++;(_0x41c6d['x']>W+0x1e||_0x41c6d['x']<-0x1e||_0x41c6d['y']>H)&&(_0x41c6d['x']=Math[_0x231e7e(0x106)]()*W,_0x41c6d['y']=-0x1e,_0x41c6d[_0x231e7e(0xf8)]=Math[_0x231e7e(0xf9)](Math[_0x231e7e(0x106)]()*0xa)-0x14);}return _0x172e8b;}window[_0x1ee115(0xfc)]('resize',function(){const _0x1f3fd=_0x1ee115;W=window[_0x1f3fd(0xe2)],H=window[_0x1f3fd(0x101)],canvas[_0x1f3fd(0xd1)]=window[_0x1f3fd(0xe2)],canvas[_0x1f3fd(0xc4)]=window[_0x1f3fd(0x101)];},![]);for(var i=0x0;i<maxConfettis;i++){particles['push'](new confettiParticle());}canvas[_0x1ee115(0xd1)]=W,canvas[_0x1ee115(0xc4)]=H,Draw();
+
+
+//         let audioContext;
+//         let analyser;
+//         let microphone;
+//         let isMicActive = false;
+//         let candlesBlown = false;
+
+//         async function startMic() {
+//             if (!isMicActive && !candlesBlown) {
+//                 try {
+//                     audioContext = new (window.AudioContext || window.webkitAudioContext)();
+//                     analyser = audioContext.createAnalyser();
+//                     analyser.fftSize = 256;
+
+//                     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+//                     microphone = audioContext.createMediaStreamSource(stream);
+//                     microphone.connect(analyser);
+
+//                     isMicActive = true;
+//                     document.querySelector('button[onclick="startMic()"]').textContent = 'Stop Microphone';
+
+//                     // start listening microphone
+//                     // microphone.on('sound-detected', analyzeVolume)
+//                     analyzeVolume();
+//                 } catch (err) {
+//                     console.error('Error accessing microphone:', err);
+//                     alert('Could not access microphone. Please ensure microphone access is allowed.');
+//                 }
+//             } else {
+//                 stopMic();
+//             }
+//         }
+
+//         function stopMic() {
+//             if (microphone) {
+//                 microphone.mediaStream.getTracks().forEach(track => track.stop());
+//                 audioContext.close();
+//                 isMicActive = false;
+//                 document.querySelector('button[onclick="startMic()"]').textContent = 'Start Microphone';
+//                 document.querySelector('button[onclick="startMic()"]').style = 'background-color: rgb(199, 199, 199);';
+//                 resetFlames();
+//             }
+//         }
+
+//         function analyzeVolume() {
+//             if (!isMicActive || candlesBlown) return;
+
+//             console.log('analyzeVolume +++++')
+//             const dataArray = new Uint8Array(analyser.frequencyBinCount);
+//             analyser.getByteFrequencyData(dataArray);
+
+//             const average = dataArray.reduce((sum, value) => sum + value, 0) / dataArray.length;
+//             const volume = average / 255; // Normalize to 0-1
+
+//             const flames = document.querySelectorAll('.fire .flame');
+//             flames.forEach(flame => {
+//                 if (volume > 0.2) { // Threshold for leaning
+//                     const leanAngle = Math.min(40 * volume, 90); // Max 30 degrees lean
+//                     flame.style.transform = `rotate(${leanAngle - 45}deg) skew(-10deg, -10deg)`;
+//                     flame.classList.add('dynamic');
+//                 }
+            
+//             });
+        
+
+//             if (volume > 0.35) { // Threshold for blowing out candles
+//                 blowCandles();
+//             } else {
+//                 requestAnimationFrame(analyzeVolume);
+//             }
+//         }
+    
+
+//         function resetFlames() {
+//             const flames = document.querySelectorAll('.fire .flame');
+//             flames.forEach(flame => {
+//                 flame.style.transform = `rotate(-45deg) skew(-10deg, -10deg)`;
+//                 flame.classList.remove('dynamic');
+//             });
+//         }
+
+//         function blowCandles() {
+//             if (candlesBlown) return;
+//             candlesBlown = true;
+//             const flames = document.querySelectorAll('.fire .flame');
+//             flames.forEach((flame, index) => {
+//                 flame.style.animation = index % 2 === 0 ? 'fly-up-burnout-1 0s forwards' : 'fly-up-burnout-2 0s forwards';
+//                 });
+//             document.getElementById('message').style.display = 'block';
+//             document.getElementById('sign').style.display = 'block';
+//             document.getElementById('canvas').style.display = 'block';
+
+//             stopMic();
+//         }
+
+//         let W = window.innerWidth;
+// let H = window.innerHeight;
+// const canvas = document.getElementById("canvas");
+// const context = canvas.getContext("2d");
+// const maxConfettis = 150;
+// const particles = [];
+
+// const possibleColors = [
+//   "DodgerBlue",
+//   "OliveDrab",
+//   "Gold",
+//   "Pink",
+//   "SlateBlue",
+//   "LightBlue",
+//   "Gold",
+//   "Violet",
+//   "PaleGreen",
+//   "SteelBlue",
+//   "SandyBrown",
+//   "Chocolate",
+//   "Crimson"
+// ];
+
+// function randomFromTo(from, to) {
+//   return Math.floor(Math.random() * (to - from + 1) + from);
+// }
+
+// function confettiParticle() {
+//   this.x = Math.random() * W; // x
+//   this.y = Math.random() * H - H; // y
+//   this.r = randomFromTo(11, 33); // radius
+//   this.d = Math.random() * maxConfettis + 11;
+//   this.color =
+//     possibleColors[Math.floor(Math.random() * possibleColors.length)];
+//   this.tilt = Math.floor(Math.random() * 33) - 11;
+//   this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
+//   this.tiltAngle = 0;
+
+//   this.draw = function() {
+//     context.beginPath();
+//     context.lineWidth = this.r / 2;
+//     context.strokeStyle = this.color;
+//     context.moveTo(this.x + this.tilt + this.r / 3, this.y);
+//     context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5);
+//     return context.stroke();
+//   };
+// }
+
+// function Draw() {
+//   const results = [];
+
+//   // Magical recursive functional love
+//   requestAnimationFrame(Draw);
+
+//   context.clearRect(0, 0, W, window.innerHeight);
+
+//   for (var i = 0; i < maxConfettis; i++) {
+//     results.push(particles[i].draw());
+//   }
+
+//   let particle = {};
+//   let remainingFlakes = 0;
+//   for (var i = 0; i < maxConfettis; i++) {
+//     particle = particles[i];
+
+//     particle.tiltAngle += particle.tiltAngleIncremental;
+//     particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
+//     particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
+
+//     if (particle.y <= H) remainingFlakes++;
+
+//     // If a confetti has fluttered out of view,
+//     // bring it back to above the viewport and let if re-fall.
+//     if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
+//       particle.x = Math.random() * W;
+//       particle.y = -30;
+//       particle.tilt = Math.floor(Math.random() * 10) - 20;
+//     }
+//   }
+
+//   return results;
+// }
+
+// window.addEventListener(
+//   "resize",
+//   function() {
+//     W = window.innerWidth;
+//     H = window.innerHeight;
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//   },
+//   false
+// );
+
+// // Push new confetti objects to `particles[]`
+// for (var i = 0; i < maxConfettis; i++) {
+//   particles.push(new confettiParticle());
+// }
+
+// // Initialize
+// canvas.width = W;
+// canvas.height = H;
+// Draw();
